@@ -455,7 +455,7 @@ int System::getOsMajorVersion()
 		instance()->mOSMajorVersion = [[sysVerComponents firstObject] intValue];
 #elif defined( CINDER_MAC )
 		if( [[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)] ) {
-			ShadowOSVersion version = ((ShadowOSVersion(*)(id, SEL))objc_msgSend_stret)([NSProcessInfo processInfo], @selector(operatingSystemVersion));
+			ShadowOSVersion version = ((ShadowOSVersion(*)(id, SEL))objc_msgSend)([NSProcessInfo processInfo], @selector(operatingSystemVersion));
 			instance()->mOSMajorVersion = (int32_t)version.majorVersion;
 		} else {
 	#pragma clang diagnostic push
@@ -487,7 +487,7 @@ int System::getOsMinorVersion()
 		instance()->mOSMinorVersion = [[sysVerComponents objectAtIndex:1] intValue];
 #elif defined( CINDER_MAC )
 		if( [[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)] ) {
-			ShadowOSVersion version = ((ShadowOSVersion(*)(id, SEL))objc_msgSend_stret)([NSProcessInfo processInfo], @selector(operatingSystemVersion));
+			ShadowOSVersion version = ((ShadowOSVersion(*)(id, SEL))objc_msgSend)([NSProcessInfo processInfo], @selector(operatingSystemVersion));
 			instance()->mOSMinorVersion = (int32_t)version.minorVersion;
 		} else {
 	#pragma clang diagnostic push
@@ -522,7 +522,7 @@ int System::getOsBugFixVersion()
 			instance()->mOSBugFixVersion = 0;
 #elif defined( CINDER_MAC )
 		if( [[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)] ) {
-			ShadowOSVersion version = ((ShadowOSVersion(*)(id, SEL))objc_msgSend_stret)([NSProcessInfo processInfo], @selector(operatingSystemVersion));
+			ShadowOSVersion version = ((ShadowOSVersion(*)(id, SEL))objc_msgSend)([NSProcessInfo processInfo], @selector(operatingSystemVersion));
 			instance()->mOSBugFixVersion = (int32_t)version.patchVersion;
 		} else {
 	#pragma clang diagnostic push
