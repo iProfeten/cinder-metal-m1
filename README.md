@@ -16,6 +16,8 @@ Easy start:
 3. cd build dir
 3. cmake ../src -DCMAKE_OSX_ARCHITECTURES="arm64" 
 4. then run cmake --build .
+5. Use tinderbox from the tools as usual to generate project. Metal should be found there now.
+6. Make sure you add ARC (under build options/Apple clang -language -Objective-C/Objective-c Automatic Reference Counting) if compiling with metal as well as the metal framework and the quartz framework (for core animation)
 
 Cinder is released under the [Modified BSD License](COPYING). Please visit [our website](https://libcinder.org) for more information.
 
